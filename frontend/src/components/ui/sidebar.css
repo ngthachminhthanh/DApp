@@ -1,0 +1,15 @@
+@media (min-width: 768px) {
+    [data-variant="inset"]~[data-sidebar="inset-main"] {
+        padding-left: var(--sidebar-width);
+    }
+
+    [data-variant="inset"][data-state="collapsed"]~[data-sidebar="inset-main"] {
+        padding-left: 0;
+    }
+}
+
+[data-sidebar="header"] {
+    padding: 0 !important;
+    gap: 0 !important;
+    display: block !important;
+}
