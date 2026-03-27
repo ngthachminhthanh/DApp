@@ -124,7 +124,7 @@ const TokenList: React.FC = () => {
                         <div className="flex items-center gap-3 pl-4 text-left">
                           <Avatar className="h-10 w-10">
                             <AvatarImage
-                              src={token.image || "/default-token.png"}
+                              src={token.image || "/default-token-image.png"}
                               alt={token.name}
                             />
                             <AvatarFallback>{token.symbol}</AvatarFallback>
@@ -251,7 +251,7 @@ const TokenList: React.FC = () => {
                         <div className="flex items-center gap-3">
                           <Avatar className="h-10 w-10">
                             <AvatarImage
-                              src={token.image || "/default-token.png"}
+                              src={token.image || "/default-token-image.png"}
                               alt={token.name}
                             />
                             <AvatarFallback>{token.symbol}</AvatarFallback>

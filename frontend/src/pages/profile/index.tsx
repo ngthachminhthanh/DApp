@@ -25,6 +25,7 @@ import GithubIcon from "../../assets/icons/profile-github-icon.svg?react";
 import TelegramIcon from "../../assets/icons/connect-telegram-icon.svg?react";
 import CopyIcon from "../../assets/icons/profile-copy-icon.svg?react";
 import { useUserProfile } from "@/hooks/useUserProfile";
+import { shortenAddress } from "@/utils/format";
 
 const Profile: React.FC = () => {
   const [activeTab, setActiveTab] = useState("tokens");
@@ -119,7 +120,7 @@ const Profile: React.FC = () => {
                     <div>
                       <p className="font-bold">{profile?.username || "John"}</p>
                       <p className="text-xs text-gray-500 font-medium">
-                        {profile?.walletAddress || "0x4aq...gfr6j5lda"}
+                        {profile ? shortenAddress(profile.walletAddress) : "0x4aq...gfr6j5lda"}
                       </p>
                     </div>
                   </div>

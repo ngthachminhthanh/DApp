@@ -4,6 +4,7 @@ import StandardERC20ABI from "@/abis/StandardERC20ABI.json";
 import { toast } from "sonner";
 import { TOKEN_FACTORY_ADDRESS } from "@/constants";
 import type { Token } from "@/types";
+import axiosClient from "@/api/axiosClient";
 
 export const useUserTokens = () => {
   const { address } = useAccount();
@@ -51,6 +52,16 @@ export const useUserTokens = () => {
           return;
         }
 
+        let backendTokens: any[] = [];
+        try {
+          const res: any = await axiosClient.get("/tokens/user", {
+            params: { limit: 100 },
+          });
+          backendTokens = res.data || [];
+        } catch (err) {
+          console.error("Failed to fetch backend tokens", err);
+        }
+
         const tokenDetails = await Promise.all(
           userTokens.map(async (tokenAddr, index) => {
             try {
@@ -60,7 +71,6 @@ export const useUserTokens = () => {
                 totalSupply,
                 maxSupply,
                 balance,
-                mintProcess,
               ] = await Promise.all([
                 publicClient.readContract({
                   address: tokenAddr,
@@ -98,6 +108,19 @@ export const useUserTokens = () => {
               const progress =
                 (Number(totalSupply) / Number(maxSupply || 1)) * 100;
 
+              const backendToken = backendTokens.find(
+                (t: any) =>
+                  t.name === String(name) && t.symbol === String(symbol)
+              );
+
+              const baseUrlInfo =
+                import.meta.env.VITE_API_BASE_URL || "http://localhost:5035/v1";
+              const mediaBaseUrl = baseUrlInfo.replace(/\/v1\/?$/, "");
+
+              const imageUrl = backendToken?.image
+                ? `${mediaBaseUrl}${backendToken.image}`
+                : "/default-token-image.png";
+
               const token: Token = {
                 _id: index + 1,
                 address: tokenAddr,
@@ -107,7 +130,7 @@ export const useUserTokens = () => {
                 totalSupply: String(totalSupply),
                 balance: Number(balance),
                 progress,
-                image: "/default-token-image.png",
+                image: imageUrl,
               };
 
               return token;
