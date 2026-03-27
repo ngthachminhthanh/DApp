@@ -94,13 +94,12 @@ This project is a **full-stack decentralized web application** developed as part
 
 ## ✨ Main Features
 
-- 🔑 Authentication (Login / Register with JWT)
+- 🔑 Connect Meta Mask wallet / Authentication (Login / Register with JWT)
 - 📄 CRUD operations
 - 📡 API integration with Axios
 - ⚡ Server state management with React Query
 - 🧾 Form validation using React Hook Form + Zod
-- 🎨 Modern UI with Tailwind CSS & Radix UI
-- 🌙 Dark mode support
+- 🎨 Modern UI with Tailwind CSS, Radix UI, and shadcn/ui
 - 🔔 Toast notifications
 - 🔗 Web3 integration (Wagmi, Viem)
 
@@ -115,7 +114,6 @@ This project is a **full-stack decentralized web application** developed as part
 - 🎯 React Hook Form + Zod
 - 🔄 TanStack React Query
 - 🎨 Tailwind CSS + Radix UI
-- 🌙 next-themes (Dark mode)
 - 🔔 Sonner (Toast)
 - 🔗 Wagmi + Viem (Web3)
 
@@ -148,34 +146,36 @@ This project is a **full-stack decentralized web application** developed as part
 
 ## 📂 Folder Structure
 
+```
 project-root/
 │
 ├── frontend/ (React + Vite)
-│ └── src/
-│ ├── abis/ # Smart contract ABIs
-│ ├── api/ # API calls & services
-│ ├── assets/ # Images & static files
-│ ├── components/ # Reusable UI components
-│ ├── constants/ # Static values & configs
-│ ├── context/ # Global state (React Context)
-│ ├── hooks/ # Custom React hooks
-│ ├── lib/ # Utility libraries / configs
-│ ├── pages/ # Application pages
-│ ├── routes/ # Routing configuration
-│ ├── types/ # TypeScript types/interfaces
-│ └── utils/ # Helper functions
+│   └── src/
+│       ├── abis/         # Smart contract ABIs
+│       ├── api/          # API calls & services
+│       ├── assets/       # Images & static files
+│       ├── components/   # Reusable UI components
+│       ├── constants/    # Static values & configs
+│       ├── context/      # Global state (React Context)
+│       ├── hooks/        # Custom React hooks
+│       ├── lib/          # Utility libraries / configs
+│       ├── pages/        # Application pages
+│       ├── routes/       # Routing configuration
+│       ├── types/        # TypeScript types/interfaces
+│       └── utils/        # Helper functions
 │
 ├── backend/ (Node.js + Express)
-│ └── src/
-│ ├── configs/
-│ ├── controllers/
-│ ├── interfaces/
-│ ├── middleware/
-│ ├── models/
-│ └── routes/
+│   └── src/
+│       ├── configs/
+│       ├── controllers/
+│       ├── interfaces/
+│       ├── middleware/
+│       ├── models/
+│       └── routes/
 │
-├── screenshots/ # Images for README
+├── screenshots/          # Images for README
 └── README.md
+```
 
 ## ⚙️ Installation & Setup
 
@@ -214,9 +214,9 @@ JWT_EXPIRES_IN=1d
 
 🚀 Deployment
 
-Frontend: Vercel
+- Frontend: Vercel
 
-Backend: Render
+- Backend: Render
 
 🤝 Contributing
 Contributions are welcome!
